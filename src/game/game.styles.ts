@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Player } from "../types/game";
+import { Counter } from "../types/game";
 
 export const Layout = styled.div`
   display: flex;
@@ -34,12 +34,12 @@ export const GridColumn = styled.button`
 `;
 
 type GridCellProps = {
-  player?: Player;
+  counter?: Counter;
 };
 
-const counterColor: Record<Player, string> = {
-  "Player 1": "#a61414",
-  "Player 2": "#dbb700",
+const counterColor: Record<Counter, string> = {
+  red: "#a61414",
+  yellow: "#dbb700",
 };
 
 export const GridCell = styled.div<GridCellProps>`
@@ -47,8 +47,8 @@ export const GridCell = styled.div<GridCellProps>`
   width: 60px;
   margin: 5px;
   border-radius: 50%;
-  background-color: ${({ player }) =>
-    player ? counterColor[player] : "white"};
+  background-color: ${({ counter }) =>
+    counter ? counterColor[counter] : "white"};
 `;
 
 export const GameHelp = styled.div`

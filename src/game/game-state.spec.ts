@@ -1,4 +1,4 @@
-describe("useGameState", () => {
+describe("game-state", () => {
   it.each([
     [6, 7],
     [3, 4],

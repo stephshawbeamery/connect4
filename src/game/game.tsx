@@ -20,7 +20,7 @@ export const Game = ({ rowCount, columnCount, sequenceLength }: GameConfig) => {
             {rows.map((rowId) => (
               <GridCell
                 key={`col-${columnId}-row-${rowId}`}
-                player={undefined}
+                counter={undefined}
               />
             ))}
           </GridColumn>
