@@ -12,7 +12,7 @@ You will typically play the role of driver and the Beamery engineer will be the 
 
 ### Introduction
 
-Connect4 is a grid-based game, where two players take it in turns to add tokens. The winner is whoever manages to line up 4 pieces, in any direction, first. Diagonals are allowed.
+Connect 4 is a grid-based game, where two players take it in turns to add tokens. The winner is whoever manages to line up 4 pieces, in any direction, first. Diagonals are allowed.
 
 https://en.wikipedia.org/wiki/Connect_Four
 
@@ -35,17 +35,25 @@ A minimal version of the game should support:
 
 ## Getting started
 
-We've scaffolded a React 18 + Vite app with a simple UI to help get you started.
+We've scaffolded a React 18 + Vite app with a simple UI to help get you started. This monorepo includes both a TypeScript and JavaScript version of the app. Feel free to choose which one you prefer.
+
+- The JavaScript app is in the `/apps/js` folder
+- The TypeScript app is in the `/apps/ts` folder
 
 ### Pre-requisites
 
 - Node 18+
 
-### Run the application
+### Scripts
 
-1. Run `yarn` or `npm install` to install the dependencies
-2. Run `yarn dev` or `npm run dev` to run the application
+Run `npm install` or `yarn` in the root folder to install or dependencies
 
-### Unit tests
+#### JavaScript Workspace
 
-We've setup this repo with Jest for unit testing. To run the tests in watch mode, run `yarn test` or `npm run test`.
+- Run `npm run test --workspace=js` or `yarn workspace js test` to run the Jest unit tests in watch mode
+- Run `npm run start --workspace=js` or `yarn workspace js start` to start the application
+
+#### TypeScript Workspace
+
+- Run `npm run test --workspace=ts` or `yarn workspace ts test` to run the Jest unit tests in watch mode
+- Run `npm run start --workspace=ts` or `yarn workspace ts start` to start the application
