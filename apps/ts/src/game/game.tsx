@@ -1,27 +1,26 @@
-import { Grid, GridCell, GridColumn } from "./game.styles";
+import { GridCell, GridColumn } from "./components";
+import { Grid } from "./game.styles";
 
 export const Game = () => {
-  const rows = [...Array(6).keys()];
-  const columns = [...Array(7).keys()];
-
   return (
     <div>
       <Grid>
-        {columns.map((columnId) => (
-          <GridColumn
-            key={`col-${columnId}`}
-            onClick={() => {
-              console.log("column clicked");
-            }}
-          >
-            {rows.map((rowId) => (
-              <GridCell
-                key={`col-${columnId}-row-${rowId}`}
-                counter={undefined}
-              />
-            ))}
-          </GridColumn>
-        ))}
+        <GridColumn
+          handleClick={() => {
+            console.log("column 1 clicked");
+          }}
+        >
+          <GridCell />
+          <GridCell counter="yellow" />
+        </GridColumn>
+        <GridColumn
+          handleClick={() => {
+            console.log("column 2 clicked");
+          }}
+        >
+          <GridCell />
+          <GridCell counter="red" />
+        </GridColumn>
       </Grid>
       <p>Current player: TODO</p>
       <p>Winner: TODO</p>
