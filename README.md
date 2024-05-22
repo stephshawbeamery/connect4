@@ -28,6 +28,11 @@ A minimal version of the game should support:
 - players play pieces sequentially
 - the game identifies winning turns and ends at that point
 
+As a stretch goal, consider how you might adapt your code to support the following features:
+
+- Connect "n" (e.g. Connect 5, Connect 1000, etc)
+- Variable grid size (e.g. a 10 x 10 grid, a 1 x 100 grid)
+
 #### Top tips
 
 - Don't worry, we don't expect you to complete all of the tasks within the allotted time. We're much more interested to see how you approach and break down the problem.
