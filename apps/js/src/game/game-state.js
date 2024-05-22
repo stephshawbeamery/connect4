@@ -1,8 +1,7 @@
-export const calculateMoveResult = () => {
+export const createNewGameState = () => {
   throw new Error("Not implemented");
 };
 
-export const createNewGameState = (config) => {
-  // TODO Create a state to store the state of the grid
+export const calculateMoveResult = () => {
   throw new Error("Not implemented");
 };

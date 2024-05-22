@@ -1,21 +1,18 @@
-import { GameConfig } from "../types/game";
-import { GameHelp, Grid, GridCell, GridColumn, Layout } from "./game.styles";
+import { Grid, GridCell, GridColumn } from "./game.styles";
 
-export const Game = ({ rowCount, columnCount, sequenceLength }: GameConfig) => {
-  const rows = [...Array(rowCount).keys()];
-  const columns = [...Array(columnCount).keys()];
-
-  const executeMove = (columnId: number): void => {
-    throw new Error("Not implemented");
-  };
+export const Game = () => {
+  const rows = [...Array(6).keys()];
+  const columns = [...Array(7).keys()];
 
   return (
-    <Layout>
+    <div>
       <Grid>
         {columns.map((columnId) => (
           <GridColumn
             key={`col-${columnId}`}
-            onClick={() => executeMove(columnId)}
+            onClick={() => {
+              console.log("column clicked");
+            }}
           >
             {rows.map((rowId) => (
               <GridCell
@@ -26,20 +23,9 @@ export const Game = ({ rowCount, columnCount, sequenceLength }: GameConfig) => {
           </GridColumn>
         ))}
       </Grid>
-      <GameHelp>
-        <h1>Connect {sequenceLength}</h1>
-        <h2>How to play</h2>
-        <p>
-          This is a two player game. Each player takes turns to enter a coloured
-          counter into the grid. The first player to connect {sequenceLength} of
-          their counters in a horizontal, vertical or diagonal line is the
-          winner!
-        </p>
-        <h2>Current game</h2>
-        <p>Current player: ??</p>
-        <p>Winner: ??</p>
-        <button>Start new game</button>
-      </GameHelp>
-    </Layout>
+      <p>Current player: TODO</p>
+      <p>Winner: TODO</p>
+      <button>Start new game</button>
+    </div>
   );
 };
