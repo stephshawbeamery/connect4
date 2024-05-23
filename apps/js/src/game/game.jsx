@@ -1,4 +1,4 @@
-import { GameHelp, Grid, GridCell, GridColumn, Layout } from "./game.styles";
+import { Grid, GridCell, GridColumn } from "./game.styles";
 
 export const Game = ({ rowCount, columnCount, sequenceLength }) => {
   const rows = [...Array(rowCount).keys()];
