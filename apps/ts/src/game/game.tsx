@@ -1,45 +1,43 @@
-import { GameConfig } from "../types/game";
-import { GameHelp, Grid, GridCell, GridColumn, Layout } from "./game.styles";
+import { useCallback } from 'react';
+import { useConnect4 } from './use-connect4';
+import { Grid, GridCell, GridColumn, Layout } from "./game.styles";
+import { Help } from './help';
 
-export const Game = ({ rowCount, columnCount, sequenceLength }: GameConfig) => {
-  const rows = [...Array(rowCount).keys()];
-  const columns = [...Array(columnCount).keys()];
+export const Game = () => {
+  const { board } = useConnect4();
 
-  const executeMove = (columnId: number): void => {
-    throw new Error("Not implemented");
-  };
+  const onColumnClick = useCallback((index: number) => {
+    alert(`You clicked on column ${index}`);
+  }, []);
 
   return (
     <Layout>
       <Grid>
-        {columns.map((columnId) => (
+        {board.map((column, index) => (
           <GridColumn
-            key={`col-${columnId}`}
-            onClick={() => executeMove(columnId)}
+            key={`col-${index}`}
+            data-column={index}
+            onClick={() => onColumnClick(index)}
           >
-            {rows.map((rowId) => (
-              <GridCell
-                key={`col-${columnId}-row-${rowId}`}
-                counter={undefined}
-              />
-            ))}
+            {column.map((cell) => {
+              const { player, coordinates } = cell;
+              const [y, x] = coordinates;
+
+              return (
+                <GridCell
+                  key={`cell-${y}-${x}`}
+                  data-coords-column={y}
+                  data-coords-row={x}
+                  data-player={player}
+                  player={player}
+                />
+              )
+            })}
           </GridColumn>
         ))}
       </Grid>
-      <GameHelp>
-        <h1>Connect {sequenceLength}</h1>
-        <h2>How to play</h2>
-        <p>
-          This is a two player game. Each player takes turns to enter a coloured
-          counter into the grid. The first player to connect {sequenceLength} of
-          their counters in a horizontal, vertical or diagonal line is the
-          winner!
-        </p>
-        <h2>Current game</h2>
-        <p>Current player: ??</p>
-        <p>Winner: ??</p>
-        <button>Start new game</button>
-      </GameHelp>
+
+      <Help />
     </Layout>
   );
 };
