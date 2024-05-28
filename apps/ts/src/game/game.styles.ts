@@ -1,14 +1,6 @@
 import styled from "styled-components";
 import { Counter } from "../types/game";
 
-export const Layout = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 20px;
-  gap: 50px;
-`;
-
 export const Grid = styled.div`
   display: flex;
   width: fit-content;
@@ -23,7 +15,7 @@ export const GridColumn = styled.button`
   all: unset;
   cursor: pointer;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   border-radius: 20px;
   border: 2px solid transparent;
   padding: 10px 0;
@@ -49,8 +41,4 @@ export const GridCell = styled.div<GridCellProps>`
   border-radius: 50%;
   background-color: ${({ counter }) =>
     counter ? counterColor[counter] : "white"};
-`;
-
-export const GameHelp = styled.div`
-  width: 400px;
 `;
